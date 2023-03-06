@@ -212,7 +212,7 @@ export default function Home() {
               </div>
             </div>
             <div className={`${styles["section"]} ${styles["socna-section"]} ${styles["ing-section"]}`} ref={section1 as React.RefObject<HTMLDivElement>}>
-              <div>Bénéficiez de l&apos;expertise SOCNA et faite un diagnostic complet de vos structures.</div>
+              <div>Bénéficiez de l&apos;expertise SOCNA et faites un diagnostic complet de vos structures.</div>
               <div className={`${styles["link-to-site"]} ${styles["link-to-site-ing"]}`}>Aller au site</div>
               {/* <h1 className={styles["ing-section-title"]}>SOCNA ING</h1> */}
               {/* <div className={styles["ing-section-body"]}> */}
@@ -232,7 +232,7 @@ export default function Home() {
               {/* </div> */}
             </div>
             <div className={`${styles["section"]} ${styles["socna-section"]} ${styles["lab-section"]}`} ref={section2 as React.RefObject<HTMLDivElement>}>
-              <div>Bénéficiez de l&apos;expertise SOCNA et faite un diagnostic complet de vos structures.</div>
+              <div>Bénéficiez de l&apos;expertise SOCNA et faites un diagnostic complet de vos structures.</div>
               <div className={`${styles["link-to-site"]} ${styles["link-to-site-lab"]}`}>Aller au site</div>
                 {/* <h1>SOCNA LAB</h1>
               <p className={styles["lab-text"]}>
@@ -248,7 +248,7 @@ export default function Home() {
               </div> */}
             </div>
             <div className={`${styles["section"]} ${styles["socna-section"]} ${styles["res-section"]}`} ref={section3 as React.RefObject<HTMLDivElement>}>
-              <div>Bénéficiez de l&apos;expertise SOCNA et faite un diagnostic complet de vos structures.</div>
+              <div>Bénéficiez de l&apos;expertise SOCNA et faites un diagnostic complet de vos structures.</div>
               <div className={`${styles["link-to-site"]} ${styles["link-to-site-res"]}`}>Aller au site</div>
               {/* <h1>SOCNA RES</h1>
               <p className={styles["res-text"]}>
@@ -264,7 +264,7 @@ export default function Home() {
               </div> */}
             </div>
             <div className={`${styles["section"]} ${styles["socna-section"]} ${styles["sol-section"]}`} ref={section4 as React.RefObject<HTMLDivElement>}>
-              <div>Bénéficiez de l&apos;expertise SOCNA et faite un diagnostic complet de vos structures.</div>
+              <div>Bénéficiez de l&apos;expertise SOCNA et faites un diagnostic complet de vos structures.</div>
               <div className={`${styles["link-to-site"]} ${styles["link-to-site-sol"]}`}>Aller au site</div>
               {/* <h1>SOCNA SOLS</h1>
               <p className={styles["sol-text"]}>

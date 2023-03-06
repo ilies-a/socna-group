@@ -228,7 +228,7 @@
        100% calc(100% - var(--d)),
        var(--d) calc(100% - var(--d))
       );
-      transform: translate(0,0);
+      transform: translate(calc(var(--d)/-2),0);
 
     transition: 0.5s;
   }

@@ -11,11 +11,15 @@ const Header: React.FC = () => {
 
     const setReducedHeaderStyle = (): string | null =>{
         return headerIsReduced ? styles['reduced-header']:null
-    } 
+    };
+
+    const goToSite = () => {
+        window.location.replace("https://socna-group.vercel.app/");
+    };
 
     return (
         <div className={`${styles['main-wrapper']} ${setReducedHeaderStyle()}`}>
-            <div className={styles["logo"]}>
+            <div className={styles["logo"]} onClick={goToSite}>
                 <div className={styles["title-subtitle-wrapper"]}>
                     <div className={`${styles['title']} ${setReducedHeaderStyle()}`}>SOCNA</div>
                     <div className={`${styles['subtitle']} ${setReducedHeaderStyle()}`}>Expert Ingénierie & Étude technique</div>

@@ -1,0 +1,86 @@
+@import "../../styles/variables";
+
+$scale-adjuster: 0.7; 
+$icon-width: 366px * $scale-adjuster;
+$icon-height: 401px * $scale-adjuster;
+$large-scale: 0.5;
+$medium-scale: 0.3;
+$small-scale: 0.2;
+$normal-filter-opacity: 0.05;
+$dark-filter-opacity: 0.5;
+$bright-filter-opacity: 0;
+$filter-opacity-anim-duration: 0.3s; 
+$box-shadow: rgba(0, 0, 0, 0.4) 5px 5px, rgba(0, 0, 0, 0.3) 10px 10px, rgba(0, 0, 0, 0.2) 15px 15px, rgba(0, 0, 0, 0.1) 20px 20px, rgba(0, 0, 0, 0.05) 25px 25px;
+
+.socna-icon{
+    position: relative;
+    width:$icon-width * $large-scale;
+    height:$icon-height * $large-scale;
+    cursor: pointer;
+
+    @media (max-width: $medium-screen-max-width) {
+        width:$icon-width * $medium-scale;
+        height:$icon-height * $medium-scale;     
+    }
+
+    @media (max-width: $small-screen-max-width) {
+        width:$icon-width * $small-scale;
+        height:$icon-height * $small-scale;     
+    }
+
+    .filter{
+        position: absolute;
+        width:inherit;
+        height:inherit;
+        background-color: rgba(0, 0, 0);
+        // border:1px solid red;
+        border-radius: 0px 0px 0px 35%;
+        opacity: $normal-filter-opacity;
+        transition: opacity $filter-opacity-anim-duration;
+    }
+    
+    .bright{
+        opacity: $bright-filter-opacity;
+        transition: opacity $filter-opacity-anim-duration;
+    }
+
+    .dark{
+        opacity: $dark-filter-opacity;
+        transition: opacity $filter-opacity-anim-duration;
+    }
+
+    &:hover{
+        .go-to-section .arrow-wrapper{
+            opacity: 0.9;
+            transform: rotate(0deg);
+        }
+    }
+    
+    .go-to-section{
+        $left-shift: 5px;
+        position: absolute;
+        bottom:-5px;
+        left:-$left-shift;
+        padding: $left-shift;
+        z-index: 1;
+        width: 20px + $left-shift;
+        height: 20px;
+        .arrow-wrapper{
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            bottom: 0px;
+            opacity: 0;
+            transform: rotate(-180deg);
+            transition: opacity .3s ease-in-out;
+            transition: transform .3s ease-in-out;
+        }
+        &:hover{
+            .arrow-wrapper{
+                opacity: 1;
+            }
+        }
+    }
+
+}
+

@@ -1,0 +1,181 @@
+@import "../../styles/variables";
+
+$icon-width-large-screen: 8em;
+$icon-width-medium-screen: 7em;
+$icon-width-small-screen: 3.5em;
+
+$normal-filter-opacity: 0;//0.05;
+$dark-filter-opacity: 0.5;
+$semi-bright-filter-opacity: 0.25;
+$bright-filter-opacity: 0;
+$filter-opacity-anim-duration: 0.25s; 
+$box-shadow: rgba(0, 0, 0, 0.4) 5px 5px, rgba(0, 0, 0, 0.3) 10px 10px, rgba(0, 0, 0, 0.2) 15px 15px, rgba(0, 0, 0, 0.1) 20px 20px, rgba(0, 0, 0, 0.05) 25px 25px;
+
+$icon-body-title-font-size-large-screen: 1.2em;
+$icon-body-title-font-size-medium-screen: 1em;
+$icon-body-title-font-size-small-screen: 0.4em;
+
+$icon-body-subtitle-font-size-large-screen: 1em;
+$icon-body-subtitle-font-size-medium-screen: 0.8em;
+$icon-body-subtitle-font-size-small-screen: 0.6em;
+
+$icon-footer-height-large-screen: 2.9em;
+$icon-footer-height-medium-screen: 2.6em;
+$icon-footer-height-small-screen: 1.4em;
+
+.socna-icon{
+    position: relative;
+    height:inherit;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+
+    @media (min-width: $medium-screen-max-width) {
+        width:$icon-width-large-screen;
+    }
+
+    @media (max-width: $medium-screen-max-width) {
+        width:$icon-width-medium-screen;
+    }
+
+    @media (max-width: $small-screen-max-width) {
+        width:$icon-width-small-screen;
+    }
+
+    .icon-body{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 1;
+        align-items: center;
+        justify-content:end;
+        height: 100%;
+        padding:10px;
+        z-index: 1;
+        white-space: nowrap;
+
+        .icon-body-title{
+            display: flex;
+            flex-shrink: 1;
+            align-items: end;
+            height: 80%;
+            transition: height 0.5s ease-in-out;
+
+            @media (min-width: $medium-screen-max-width) {
+                font-size: $icon-body-title-font-size-large-screen;
+            }
+    
+            @media (max-width: $medium-screen-max-width) {
+                font-size: $icon-body-title-font-size-medium-screen;
+            }
+        
+            @media (max-width: $small-screen-max-width) {
+                font-size: $icon-body-title-font-size-small-screen;
+            }
+        }
+
+        .icon-body-title.reduced-header{
+            height: 50%;
+            transition: font-size 0.5s ease-in-out, height 0.5s ease-in-out;
+        }
+
+        .icon-body-subtitle{
+            font-size:0;
+            opacity:0;
+            height: 0%;
+            transition: opacity 0.5s ease-in-out, font-size 1s ease-in-out, height 0.5s ease-in-out;
+
+        }
+        .icon-body-subtitle.reduced-header{
+            font-size: 1em;
+            opacity:1;
+            transition: opacity 0.3s 0.1s ease-in-out, font-size 0.5s ease-in-out, height 0.5s ease-in-out;
+            height: 50%;
+            
+            @media (min-width: $medium-screen-max-width) {
+                font-size: $icon-body-subtitle-font-size-large-screen;
+            }
+    
+            @media (max-width: $medium-screen-max-width) {
+                font-size: $icon-body-subtitle-font-size-medium-screen;
+            }
+        
+            @media (max-width: $small-screen-max-width) {
+                font-size: $icon-body-subtitle-font-size-small-screen;
+            }
+        }
+
+    }
+
+    .body-filter, .footer-filter{
+        position: absolute;
+        top:0px;
+        width:100%;
+        height:inherit;
+        background-color: rgba(0, 0, 0);
+        // border:1px solid red;
+        opacity: $normal-filter-opacity;
+        transition: opacity $filter-opacity-anim-duration;
+    }
+    .footer-filter{
+        height:100%;
+        border-radius: inherit;
+    }
+    .bright{
+        opacity: $bright-filter-opacity;
+        transition: opacity $filter-opacity-anim-duration;
+    }
+
+    .semi-bright{
+        opacity: $semi-bright-filter-opacity;
+        transition: opacity $filter-opacity-anim-duration;
+    }
+
+    .dark{
+        opacity: $dark-filter-opacity;
+        transition: opacity $filter-opacity-anim-duration;
+    }
+    
+    .icon-footer{
+        position: absolute;
+        bottom: -2px;
+        transform: translateY(100%);
+        opacity:1;
+        width: 100%;
+        @media (min-width: $medium-screen-max-width) {
+            height: $icon-footer-height-large-screen;
+        }
+
+        @media (max-width: $medium-screen-max-width) {
+            height: $icon-footer-height-medium-screen;
+        }
+    
+        @media (max-width: $small-screen-max-width) {
+            height: $icon-footer-height-small-screen;
+        }
+        transition: transform .3s ease-in-out, opacity .3s ease-in-out;
+
+    }
+    .icon-footer.reduced-header{
+        opacity:0;
+        transform: translateY(0%);
+        transition: transform .3s ease-in-out, opacity 0s 0.3s ease-in-out;
+
+    }
+}
+
+.ing, .ing .icon-footer{
+    background-color: $ing-yellow;
+}
+
+.lab, .lab .icon-footer{
+    background-color: $lab-red;
+}
+
+.res, .res .icon-footer{
+    background-color: $res-blue-body;
+}
+
+.sol, .sol .icon-footer{
+    background-color: $sol-green-body;
+}

@@ -1,0 +1,20 @@
+@import "../../styles/variables";
+
+.main-wrapper{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1.5em;
+    width: fit-content;
+    height: inherit;
+    @media (max-width: $medium-screen-max-width) {
+        grid-gap: 1em;
+    }
+    @media (max-width: $small-screen-max-width) {
+        grid-gap: 0.7em;
+    }
+
+    .socna-icon-wrapper{
+        width: fit-content;
+        height: inherit;
+    }
+} 

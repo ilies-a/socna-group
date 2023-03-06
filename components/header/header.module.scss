@@ -1,0 +1,182 @@
+@import "../../styles/variables";
+
+$light-black:rgb(168, 168, 168);//rgb(151, 151, 151);
+
+$full-header-height: $header-height; 
+$reduced-header-height: $header-height - $header-height-reduction;
+
+$logo-title-font-size-large-screen: 3em;
+$logo-title-font-size-medium-screen: 2.5em;
+$logo-title-font-size-small-screen: 0em;
+
+$logo-subtitle-font-size-large-screen: 1em;
+$logo-subtitle-font-size-medium-screen: 0.9em;
+$logo-subtitle-font-size-small-screen: 0em;
+
+$logo-title-subtitle-reduced-header-scale: 0.9;
+
+$buttons-right-font-size-large-screen: 1em;
+$buttons-right-font-size-medium-screen: 0.9em;
+$buttons-right-font-size-small-screen: 0.8em;
+
+.main-wrapper{
+    background-color: white;
+    display: flex;
+    flex-shrink: 1;
+    width: 100%;
+    height: $full-header-height;
+    position: fixed;
+    z-index: 1;
+    transition: height .3s ease-in-out;
+
+    @if $dev {
+        border: 1px solid red;
+        background-color: rgba(255, 255, 255, 0);
+    }
+    
+    &.reduced-header{
+        height: $reduced-header-height;
+    }
+    // background: linear-gradient(0deg, rgb(255, 255, 255) 0%, rgb(243, 243, 243) 80%, rgb(223, 223, 223) 100%);
+    .logo, .buttons-right{
+        display: flex;
+        flex-direction: row;
+        flex: 1;
+        @if $dev {
+            border: 1px solid blue;
+        }
+    }
+    .logo{
+        position: relative;
+        height: 100%;
+        color: $text-black;
+        // padding: 10px;
+        cursor: pointer;
+        .title-subtitle-wrapper{
+            align-self: center;
+            margin: 10px;
+        }
+        @media (max-width: $small-screen-max-width) {
+            display: none;
+        }
+    }
+    .title{
+        font-weight: bold;
+        transition: font-size .3s ease-in-out;
+
+        @media (min-width: $medium-screen-max-width) {
+            font-size: $logo-title-font-size-large-screen;
+        }
+
+        @media (max-width: $medium-screen-max-width) {
+            font-size: $logo-title-font-size-medium-screen;
+        }
+    
+        @media (max-width: $small-screen-max-width) {
+            font-size: $logo-title-font-size-small-screen;
+        }
+    }
+    .title.reduced-header{
+        @media (min-width: $medium-screen-max-width) {
+            font-size: $logo-title-font-size-large-screen*$logo-title-subtitle-reduced-header-scale;
+        }
+
+        @media (max-width: $medium-screen-max-width) {
+            font-size: $logo-title-font-size-medium-screen*$logo-title-subtitle-reduced-header-scale;
+        }
+    
+        @media (max-width: $small-screen-max-width) {
+            font-size: $logo-title-font-size-small-screen*$logo-title-subtitle-reduced-header-scale;
+        }
+    }
+    .subtitle{
+        opacity: 1;
+        transition: font-size .3s ease-in-out, opacity .3s ease-in-out;
+
+        @media (min-width: $medium-screen-max-width) {
+            font-size: $logo-subtitle-font-size-large-screen;
+        }
+    
+        @media (max-width: $medium-screen-max-width) {
+            font-size: $logo-subtitle-font-size-medium-screen;
+        }
+    
+        @media (max-width: $small-screen-max-width) {
+            font-size: $logo-subtitle-font-size-small-screen;
+        }
+    }
+
+    .subtitle.reduced-header{
+        opacity: 1;
+        transition: font-size .3s ease-in-out, opacity .3s ease-in-out;
+
+        @media (min-width: $medium-screen-max-width) {
+            font-size: $logo-subtitle-font-size-large-screen*$logo-title-subtitle-reduced-header-scale;
+        }
+
+        @media (max-width: $medium-screen-max-width) {
+            font-size: $logo-subtitle-font-size-medium-screen*$logo-title-subtitle-reduced-header-scale;
+        }
+    
+        @media (max-width: $small-screen-max-width) {
+            font-size: $logo-subtitle-font-size-small-screen*$logo-title-subtitle-reduced-header-scale;
+        }
+    }
+    .socna-icons-wrapper-wrapper{
+        @if $dev {
+            border: 1px solid orange;
+        }
+        flex: 1;
+        height:inherit;
+        display: flex;
+        flex-shrink: 1;
+        justify-content: center;
+        align-items: center;
+    }
+    .buttons-right{
+        position: relative;
+        flex: 1;
+        height: 100%;
+        // padding: 10px;
+        display: flex;
+        align-items: center;
+        
+        @media (min-width: $medium-screen-max-width) {
+            font-size: $buttons-right-font-size-large-screen;
+        }
+
+        @media (max-width: $medium-screen-max-width) {
+            font-size: $buttons-right-font-size-medium-screen;
+        }
+    
+        @media (max-width: $small-screen-max-width) {
+            font-size: $buttons-right-font-size-small-screen;
+        }
+
+        .buttons-wrapper{
+            margin-left: auto;
+            text-align: right;
+        }
+        .button{
+            width: fit-content;
+            display: inline-block;
+            cursor: pointer;
+            margin:10px;
+        }
+        .separator{
+            left:100%;
+            transform: translateX(-99%);
+        }
+    
+    }
+    .separator{
+        position: absolute;
+        top:100%;
+        transform: translateY(-100%);
+        transform: translateX(-1%);
+        border:0px;
+        border-top: 1px solid $light-black;
+        width: 95%;
+    }
+}
+
